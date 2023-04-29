@@ -1,0 +1,20 @@
+---
+- name: installing httpd
+  hosts: all
+  user: ec2-user
+  become: yes
+  tasks:
+     - name: installing httpd
+       yum:
+         name: httpd
+         state: absent
+     - name: copying file to all managed hosts
+       copy:
+         src: /files/index.html
+         dest: /var/www/html/index.html
+     
+     - name: started httpd service
+       service:
+            name: httpd
+            state: stopped
+            enabled: false

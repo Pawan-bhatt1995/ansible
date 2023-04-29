@@ -1,0 +1,6 @@
+---
+- name: improt multiple files in  task
+  yum:
+     name: httpd
+     state: absent
+

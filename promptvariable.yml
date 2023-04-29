@@ -1,0 +1,19 @@
+---
+- name: # command line type of variable
+  hosts: all
+  become: yes
+  vars_prompt:
+          - name: us
+            prompt: "what is your username"
+            private: no
+          - name: pw
+            prompt: "what is your password"
+            private: yes
+  tasks:
+     - name: add user and apply passwd
+       user:
+         name: "{{ us }}"
+         state: present
+         password: "{{ pw | password_hash('sha512') }}"
+           
+

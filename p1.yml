@@ -1,0 +1,15 @@
+---
+- name: # 1st playbook for ansible managed node
+  hosts: all
+  tasks:
+     - file:
+        path: /tmp/data
+        state: directory
+     - copy:
+        src: /etc/fstab
+        dest: /tmp/data
+     - yum:
+        name:
+          - httpd
+          - firewalld
+        state: absent

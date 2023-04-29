@@ -1,0 +1,16 @@
+---
+- name: # listing (array) type of variable
+  hosts: all
+  become: yes
+  vars:
+    mypkg:
+     - httpd
+     - firewalld
+     - wget
+  tasks:
+     - name: install web services
+       yum:
+         name: "{{ mypkg }}"
+         state: installed
+           
+

@@ -1,0 +1,7 @@
+- name: import
+  hosts: all
+  user: ec2-user
+  become: yes
+  tasks:
+    - name: configured firewalld
+      import_tasks: /home/ec2-user/playbook/p4.yml

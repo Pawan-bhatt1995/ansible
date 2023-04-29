@@ -1,0 +1,15 @@
+--- 
+- name: installing and starting pckg using variable
+  hosts: all
+  vars:
+  sespackage: vsftpd
+  tasks:
+  - name: Package install
+    yum:
+     name: “{{ sespackage }}”
+     state: present
+  - name: Start service
+    service:
+     name: “{{ sespackage }}”
+     state: started
+

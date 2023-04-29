@@ -1,0 +1,10 @@
+- name: example of invenroy level variable
+  hosts: all
+  tasks:
+        - name: create dir
+          file:
+            path: "{{ web_root }}"
+            state: directory
+        - debug:
+            msg: "{{ web_root }}"
+         

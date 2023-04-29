@@ -1,0 +1,6 @@
+---
+- name:
+  hosts: all
+  gather_facts: true
+  become: yes
+  vars: 
